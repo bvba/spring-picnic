@@ -1,4 +1,4 @@
-package com._404.back.controller;
+package com._404.cosmos.controller;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
