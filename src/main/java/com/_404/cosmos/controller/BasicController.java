@@ -13,7 +13,7 @@ public class BasicController {
 
     @GetMapping("/test")
     public Object test() {
-        return new ResponseEntity<>("hello back!\nTime : " +
+        return new ResponseEntity<>("hello cosmos!</br>Time : " +
                 LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy MM dd EEE HH:mm:ss")), HttpStatus.OK);
     }
 
