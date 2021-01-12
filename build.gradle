@@ -12,6 +12,7 @@ configurations {
 	compileOnly {
 		extendsFrom annotationProcessor
 	}
+	testCompile.extendsFrom compileOnly
 }
 
 repositories {
@@ -21,7 +22,7 @@ repositories {
 dependencies {
 //	implementation 'org.springframework.boot:spring-boot-starter-actuator'
 //	implementation 'org.springframework.boot:spring-boot-starter-batch'
-//	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 //	implementation 'org.springframework.boot:spring-boot-starter-data-rest'
 //	implementation 'org.springframework.boot:spring-boot-starter-hateoas'
 //	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
@@ -29,9 +30,10 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web-services'
 	implementation 'org.springframework.boot:spring-boot-starter-webflux'
 	compileOnly 'org.projectlombok:lombok'
-//	runtimeOnly 'com.h2database:h2'
+	runtimeOnly 'com.h2database:h2'
 //	runtimeOnly 'io.micrometer:micrometer-registry-new-relic'
 	annotationProcessor 'org.projectlombok:lombok'
+	testCompile 'com.google.truth:truth:1.0'
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}
