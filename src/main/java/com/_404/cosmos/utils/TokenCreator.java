@@ -10,7 +10,7 @@ public class TokenCreator {
 		throw new IllegalStateException("Utility class");
 	}
 
-	public static String  createToken() {
+	public static String createToken() {
 		return UUID.randomUUID().toString();
 	}
 }
