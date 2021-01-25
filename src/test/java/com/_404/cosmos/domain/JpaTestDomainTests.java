@@ -10,8 +10,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 class JpaTestDomainTests extends IntegrationSupport {
 
+    private final JpaTestModelRepository jpaTestModelRepository;
+
     @Autowired
-    public JpaTestModelRepository jpaTestModelRepository;
+    public JpaTestDomainTests(JpaTestModelRepository jpaTestModelRepository) {
+        this.jpaTestModelRepository = jpaTestModelRepository;
+    }
 
     private final String name = "bvba";
 
