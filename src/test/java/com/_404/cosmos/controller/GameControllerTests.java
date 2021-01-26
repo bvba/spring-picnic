@@ -13,8 +13,12 @@ import java.util.List;
 
 class GameControllerTests extends IntegrationSupport {
 
+	private final GameController gameController;
+
 	@Autowired
-	public GameController gameController;
+	public GameControllerTests(GameController gameController) {
+		this.gameController = gameController;
+	}
 
 	@DisplayName("humans api 테스트")
 	@Test

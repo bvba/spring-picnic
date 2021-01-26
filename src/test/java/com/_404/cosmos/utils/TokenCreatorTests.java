@@ -12,8 +12,12 @@ import java.util.stream.Stream;
 
 class TokenCreatorTests extends IntegrationSupport {
 
+	private final JpaTestModelRepository jpaTestModelRepository;
+
 	@Autowired
-	JpaTestModelRepository jpaTestModelRepository;
+	public TokenCreatorTests(JpaTestModelRepository jpaTestModelRepository) {
+		this.jpaTestModelRepository = jpaTestModelRepository;
+	}
 
 	@DisplayName("토큰 생성 테스트")
 	@Test
