@@ -9,6 +9,6 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 public class ReqSimulate {
-	private List<@Valid ReqHuman> humanList;
-	private List<@Valid ReqTrafficLight> trafficLightList;
+    private List<@Valid ReqHuman> humanList;
+    private List<@Valid ReqTrafficLight> trafficLightList;
 }

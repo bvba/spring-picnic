@@ -4,7 +4,7 @@ import lombok.Data;
 
 @Data
 public class ReplyTrafficLight {
-	private Long id = 0L;
-	private Integer continuous = 0;
-	private Integer block = 0;
+    private Long id = 0L;
+    private Integer continuous = 0;
+    private Integer block = 0;
 }

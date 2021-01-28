@@ -6,7 +6,7 @@ import javax.validation.constraints.Min;
 
 @Data
 public class ReqTrafficLight {
-	@Min(1)
-	private Long id;
-	private Boolean turn;
+    @Min(1)
+    private Long id;
+    private Boolean turn;
 }
