@@ -1,6 +1,7 @@
 package com._404.cosmos.controller;
 
 import com._404.cosmos.IntegrationSupport;
+import com._404.cosmos.controller.request.ReqHuman;
 import com._404.cosmos.controller.request.ReqSimulate;
 import com._404.cosmos.controller.request.ReqStart;
 import com._404.cosmos.controller.response.*;
@@ -8,8 +9,13 @@ import com.google.common.truth.Truth;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 
+import javax.validation.constraints.Min;
+import java.util.Collections;
 import java.util.List;
+
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 class GameControllerTests extends IntegrationSupport {
 
@@ -75,11 +81,15 @@ class GameControllerTests extends IntegrationSupport {
 		// given
 
 		// when
-		ReplySimulate replySimulate = gameController.simulate(new ReqSimulate());
+		ReplySimulate replySimulate = gameController.simulate(new ReqSimulate(Collections.emptyList(), Collections.emptyList()));
 
 		// then
 		Truth.assertThat(replySimulate.getHumanResultList().isEmpty()).isTrue();
 		Truth.assertThat(replySimulate.getTrafficLightResultList().isEmpty()).isTrue();
 	}
+
+	// TODO: @Valid 테스트 하기
+	// 테스트하려면 추가적인 작업이 필요함
+	// https://stackoverflow.com/questions/29069956/how-to-test-validation-annotations-of-a-class-using-junit
 
 }
