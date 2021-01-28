@@ -9,6 +9,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.Collections;
 import java.util.List;
 
 class GameControllerTests extends IntegrationSupport {
@@ -75,7 +76,7 @@ class GameControllerTests extends IntegrationSupport {
         // given
 
         // when
-        ReplySimulate replySimulate = gameController.simulate(new ReqSimulate());
+        ReplySimulate replySimulate = gameController.simulate(new ReqSimulate(Collections.emptyList(), Collections.emptyList()));
 
         // then
         Truth.assertThat(replySimulate.getHumanResultList().isEmpty()).isTrue();
