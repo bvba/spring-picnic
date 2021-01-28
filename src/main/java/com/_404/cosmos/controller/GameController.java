@@ -6,6 +6,7 @@ import com._404.cosmos.controller.response.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.Collections;
 import java.util.List;
 
@@ -48,7 +49,7 @@ public class GameController {
 
 	@PostMapping("/simulate")
 	public ReplySimulate simulate(
-			@RequestBody ReqSimulate reqSimulate
+			@Valid @RequestBody ReqSimulate reqSimulate
 	) {
 		log.info(reqSimulate.toString());
 		return new ReplySimulate();
