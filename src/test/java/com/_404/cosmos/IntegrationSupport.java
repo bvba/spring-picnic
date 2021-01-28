@@ -5,6 +5,6 @@ import org.springframework.boot.web.server.LocalServerPort;
 
 @SpringBootTest(classes = CosmosApplication.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class IntegrationSupport {
-	@LocalServerPort
-	Integer port = 0;
+    @LocalServerPort
+    Integer port = 0;
 }
