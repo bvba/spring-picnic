@@ -13,17 +13,17 @@ import java.util.stream.Stream;
 @RequiredArgsConstructor
 public class DBInitializer implements CommandLineRunner {
 
-	private final JpaTestModelRepository jpaTestModelRepository;
+    private final JpaTestModelRepository jpaTestModelRepository;
 
-	@Override
-	public void run(String... args) {
-		createJpaTestModel();
-	}
+    @Override
+    public void run(String... args) {
+        createJpaTestModel();
+    }
 
-	private void createJpaTestModel() {
-		jpaTestModelRepository.saveAll(
-			Stream.generate(JpaTestModel::new)
-				.limit(5)
-			.collect(Collectors.toList()));
-	}
+    private void createJpaTestModel() {
+        jpaTestModelRepository.saveAll(
+                Stream.generate(JpaTestModel::new)
+                        .limit(5)
+                        .collect(Collectors.toList()));
+    }
 }
