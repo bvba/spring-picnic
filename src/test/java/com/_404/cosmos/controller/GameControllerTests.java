@@ -88,8 +88,4 @@ class GameControllerTests extends IntegrationSupport {
 		Truth.assertThat(replySimulate.getTrafficLightResultList().isEmpty()).isTrue();
 	}
 
-	// TODO: @Valid 테스트 하기
-	// 테스트하려면 추가적인 작업이 필요함
-	// https://stackoverflow.com/questions/29069956/how-to-test-validation-annotations-of-a-class-using-junit
-
 }
