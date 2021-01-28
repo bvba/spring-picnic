@@ -21,7 +21,7 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
     @ResponseBody
-    public ReplyError handleBadRequestException(MethodArgumentNotValidException e) {
+    public ReplyError handleMethodArgumentNotValidException(MethodArgumentNotValidException e) {
         log.info("[Error] " + e.getParameter() + ": " + e.getMessage());
         return new ReplyError(new BaseCustomException(ErrorCode.INVALID_PARAMETER, e.getMessage()));
     }
