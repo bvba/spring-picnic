@@ -8,9 +8,9 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class SwaggerConfig {
-	SwaggerConfig() {
-		ObjectMapper mapper = new ObjectMapper();
-		mapper.setPropertyNamingStrategy(PropertyNamingStrategy.SNAKE_CASE);
-		ModelConverters.getInstance().addConverter(new ModelResolver(mapper));
-	}
+    SwaggerConfig() {
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.setPropertyNamingStrategy(PropertyNamingStrategy.SNAKE_CASE);
+        ModelConverters.getInstance().addConverter(new ModelResolver(mapper));
+    }
 }

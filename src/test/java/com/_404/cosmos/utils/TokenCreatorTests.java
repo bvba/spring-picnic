@@ -12,25 +12,25 @@ import java.util.stream.Stream;
 
 class TokenCreatorTests extends IntegrationSupport {
 
-	private final JpaTestModelRepository jpaTestModelRepository;
+    private final JpaTestModelRepository jpaTestModelRepository;
 
-	@Autowired
-	public TokenCreatorTests(JpaTestModelRepository jpaTestModelRepository) {
-		this.jpaTestModelRepository = jpaTestModelRepository;
-	}
+    @Autowired
+    public TokenCreatorTests(JpaTestModelRepository jpaTestModelRepository) {
+        this.jpaTestModelRepository = jpaTestModelRepository;
+    }
 
-	@DisplayName("토큰 생성 테스트")
-	@Test
-	void createTokenTest() {
-		Truth.assertThat(StringUtils.isEmpty(TokenCreator.createToken())).isFalse();
-	}
+    @DisplayName("토큰 생성 테스트")
+    @Test
+    void createTokenTest() {
+        Truth.assertThat(StringUtils.isEmpty(TokenCreator.createToken())).isFalse();
+    }
 
-	@DisplayName("토큰 중복 테스트")
-	@Test
-	void tokenDuplicateTest() {
-		final int size = 500_000;
-		Truth.assertThat((int) Stream.generate(TokenCreator::createToken)
-				.limit(size).distinct().count()).isEqualTo(size);
-	}
+    @DisplayName("토큰 중복 테스트")
+    @Test
+    void tokenDuplicateTest() {
+        final int size = 500_000;
+        Truth.assertThat((int) Stream.generate(TokenCreator::createToken)
+                .limit(size).distinct().count()).isEqualTo(size);
+    }
 
 }

@@ -8,7 +8,7 @@ import javax.validation.constraints.Min;
 @Data
 @AllArgsConstructor
 public class ReqHuman {
-	@Min(1)
-	private Long id;
-	private Integer goal;
+    @Min(1)
+    private Long id;
+    private Integer goal;
 }

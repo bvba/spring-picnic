@@ -1,6 +1,8 @@
 package com._404.cosmos.domain;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
 import org.apache.commons.lang3.RandomStringUtils;
 
 import javax.persistence.*;
