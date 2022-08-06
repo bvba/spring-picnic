@@ -21,6 +21,7 @@ public class GameController {
             @RequestParam(USER_ID) Long userId,
             @RequestHeader(X_TOKEN) String token
     ) {
+        System.out.println("test");
         return Collections.emptyList();
     }
 
