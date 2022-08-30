@@ -14,8 +14,8 @@ open class User(
         @GeneratedValue(strategy = GenerationType.AUTO)
         open var id: Long? = null,
 
-        @Column(name="auth_token")
-        open var autoToken: String? = null,
+        @Column(name="auth_token", unique = true)
+        open var authToken: String? = null,
 
         @Column(name="created_at")
         open var createdAt:LocalDateTime = LocalDateTime.now(),
@@ -28,11 +28,11 @@ open class User(
         open var scenario: Scenario? = null,
 
         @Column(name = "game_time")
-        open var gameTime: Int? = null,
+        open var gameTime: Int = 0,
 
         @Convert(converter = GameStatusConverter::class)
         @Column(name = "game_status")
-        open var gameStatus: GameStatus?  = null
+        open var gameStatus: GameStatus  = GameStatus.NONE
 )
 
 

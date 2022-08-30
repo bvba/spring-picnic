@@ -29,6 +29,7 @@ class ScenarioTests {
         scenarioRepository.save(scenario1)
 
         Assertions.assertEquals(1, scenarioRepository.count())
+        Assertions.assertEquals(1, scenarioRepository.findAll()[0].id)
     }
 
     @Test

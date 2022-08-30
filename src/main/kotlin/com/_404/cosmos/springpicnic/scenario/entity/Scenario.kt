@@ -6,7 +6,6 @@ import javax.persistence.*
 @Table(name = "scenario")
 open class Scenario(
         @Id
-        @GeneratedValue(strategy = GenerationType.AUTO)
         open var id: Long? = null,
 
         @Column(name = "game_span")
