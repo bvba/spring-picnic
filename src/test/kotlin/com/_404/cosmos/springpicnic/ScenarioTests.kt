@@ -64,9 +64,7 @@ class ScenarioTests {
     }
 
     fun isSameScenario( scenario_a: Scenario,  scenario_b: Scenario){
-        Assertions.assertEquals(scenario_a.id, scenario_b.id)
-        Assertions.assertEquals(scenario_a.gameSpan, scenario_b.gameSpan)
-        Assertions.assertEquals(scenario_a.loadSize, scenario_b.loadSize)
+        Assertions.assertTrue(scenario_a == scenario_b)
     }
 
 }
