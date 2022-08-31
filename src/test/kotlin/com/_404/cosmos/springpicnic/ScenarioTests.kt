@@ -55,8 +55,10 @@ class ScenarioTests {
 
     }
 
-    @Test
+    @test
     fun 모든_데이터를_지운다(){
+        scenarioRepository.save(scenario1)
+        scenarioRepository.save(scenario2)
         scenarioRepository.deleteAll()
         Assertions.assertEquals(0, scenarioRepository.count())
     }
