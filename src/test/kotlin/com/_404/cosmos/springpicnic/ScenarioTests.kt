@@ -39,14 +39,14 @@ class ScenarioTests {
 
         Assertions.assertEquals(2, scenarioRepository.count())
 
-        var scenario = scenarioRepository.findById(scenario1.id!!)
+        var scenario = scenarioRepository.findById(scenario1.id)
         Assertions.assertTrue(scenario.isPresent)
 
         Assertions.assertTrue(scenario1 == scenario.get())
 
-        scenario = scenarioRepository.findById(scenario2.id!!)
+        scenario = scenarioRepository.findById(scenario2.id)
         Assertions.assertTrue(scenario.isPresent)
-        Assertions.assertTrue(scenario1 == scenario.get())
+        Assertions.assertTrue(scenario2 == scenario.get())
 
     }
 

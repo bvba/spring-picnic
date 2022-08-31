@@ -15,7 +15,7 @@ open class User(
         var id: Long? = null,
 
         @Column(name="auth_token")
-        var autoToken: String? = null,
+        var autoToken: String,
 
         @Column(name="created_at")
         var createdAt:LocalDateTime = LocalDateTime.now(),
@@ -32,7 +32,7 @@ open class User(
 
         @Convert(converter = GameStatusConverter::class)
         @Column(name = "game_status")
-        var gameStatus: GameStatus?  = null
+        var gameStatus: GameStatus = GameStatus.NONE
 )
 
 

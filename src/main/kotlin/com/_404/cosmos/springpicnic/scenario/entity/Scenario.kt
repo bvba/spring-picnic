@@ -6,13 +6,13 @@ import javax.persistence.*
 @Table(name = "scenario")
 open class Scenario(
         @Id
-        var id: Long? = null,
+        var id: Long,
 
         @Column(name = "game_span")
-        var gameSpan: Int? = null,
+        var gameSpan: Int,
 
         @Column(name = "load_size")
-        var loadSize: Int? = null
+        var loadSize: Int
 ){
         override fun equals(other: Any?): Boolean {
                 if (other !is Scenario) {
