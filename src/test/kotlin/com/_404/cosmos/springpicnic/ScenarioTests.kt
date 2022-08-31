@@ -18,10 +18,6 @@ class ScenarioTests {
     val scenario1: Scenario = Scenario(id=1, gameSpan = 10, loadSize = 20)
     val scenario2: Scenario = Scenario(id=2, gameSpan = 15, loadSize = 30)
 
-    @BeforeEach
-    fun setUp(){
-        scenarioRepository.deleteAll()
-    }
 
     @Test
     fun 시나리오를_추가_한다(){
