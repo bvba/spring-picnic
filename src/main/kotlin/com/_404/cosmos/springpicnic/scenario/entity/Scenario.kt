@@ -13,4 +13,13 @@ open class Scenario(
 
         @Column(name = "load_size")
         var loadSize: Int? = null
-)
+){
+        override fun equals(other: Any?): Boolean {
+                if (other !is Scenario) {
+                        return false
+                }
+                return this.id == other.id
+                        && this.gameSpan == other.gameSpan
+                        && this.loadSize == other.loadSize
+        }
+}
