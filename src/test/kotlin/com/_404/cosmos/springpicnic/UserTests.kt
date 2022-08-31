@@ -17,13 +17,7 @@ class UserTests {
 
     @Autowired
     lateinit var scenarioRepository: ScenarioRepository
-
-    @BeforeEach
-    fun setUp(){
-        userRepository.deleteAll()
-        scenarioRepository.deleteAll()
-        
-    }
+    
 
     @Test
     fun 시나리오가_없는_유저를_추가_한다(){
