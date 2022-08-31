@@ -12,27 +12,27 @@ import javax.persistence.*
 open class User(
         @Id
         @GeneratedValue(strategy = GenerationType.AUTO)
-        open var id: Long? = null,
+        var id: Long? = null,
 
         @Column(name="auth_token")
-        open var autoToken: String? = null,
+        var autoToken: String? = null,
 
         @Column(name="created_at")
-        open var createdAt:LocalDateTime = LocalDateTime.now(),
+        var createdAt:LocalDateTime = LocalDateTime.now(),
 
         @Column(name="expire_at")
-        open var expireAt:LocalDateTime? = null,
+        var expireAt:LocalDateTime? = null,
 
         @ManyToOne(fetch = FetchType.LAZY)
         @JoinColumn(name = "scenario_id")
-        open var scenario: Scenario? = null,
+        var scenario: Scenario? = null,
 
         @Column(name = "game_time")
-        open var gameTime: Int? = null,
+        var gameTime: Int? = null,
 
         @Convert(converter = GameStatusConverter::class)
         @Column(name = "game_status")
-        open var gameStatus: GameStatus?  = null
+        var gameStatus: GameStatus?  = null
 )
 
 
