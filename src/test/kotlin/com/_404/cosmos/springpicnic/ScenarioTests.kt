@@ -30,10 +30,10 @@ class ScenarioTests {
         Assertions.assertEquals(1, scenarioRepository.count())
     }
 
-    @Test
+    @test
     fun 존재하지_않는_시나리오를_조회_한다(){
         val scenario = scenarioRepository.findById(-1)
-        Assertions.assertFalse(scenario.isPresent)
+        Assertions.assertTrue(scenario.isEmpty)
     }
 
     @Test
