@@ -42,12 +42,11 @@ class ScenarioTests {
         var scenario = scenarioRepository.findById(scenario1.id!!)
         Assertions.assertTrue(scenario.isPresent)
 
-        isSameScenario(scenario1, scenario.get())
+        Assertions.assertTrue(scenario1 == scenario.get())
 
         scenario = scenarioRepository.findById(scenario2.id!!)
         Assertions.assertTrue(scenario.isPresent)
-
-        isSameScenario(scenario2, scenario.get())
+        Assertions.assertTrue(scenario1 == scenario.get())
 
     }
 
@@ -57,10 +56,6 @@ class ScenarioTests {
         scenarioRepository.save(scenario2)
         scenarioRepository.deleteAll()
         Assertions.assertEquals(0, scenarioRepository.count())
-    }
-
-    fun isSameScenario( scenario_a: Scenario,  scenario_b: Scenario){
-        Assertions.assertTrue(scenario_a == scenario_b)
     }
 
 }
