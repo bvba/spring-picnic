@@ -1,4 +1,4 @@
-package com._404.cosmos.springpicnic.user.entity
+package com._404.cosmos.springpicnic.player.entity
 
 import com._404.cosmos.springpicnic.scenario.entity.Scenario
 import com._404.cosmos.springpicnic.game.GameStatus
@@ -8,8 +8,8 @@ import javax.persistence.*
 
 
 @Entity
-@Table(name = "users")
-open class User(
+@Table(name = "player")
+open class Player(
         @Id
         @GeneratedValue(strategy = GenerationType.AUTO)
         open var id: Long? = null,

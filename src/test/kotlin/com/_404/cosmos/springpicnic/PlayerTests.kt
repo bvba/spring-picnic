@@ -1,19 +1,18 @@
 package com._404.cosmos.springpicnic
 
+import com._404.cosmos.springpicnic.player.repository.PlayerRepository
 import com._404.cosmos.springpicnic.scenario.repository.ScenarioRepository
-import com._404.cosmos.springpicnic.user.repository.UserRepository
 import org.junit.jupiter.api.Assertions
-import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest
 
 @Suppress("NonAsciiCharacters", "TestFunctionName")
 @DataJpaTest
-class UserTests {
+class PlayerTests {
 
     @Autowired
-    lateinit var userRepository: UserRepository
+    lateinit var playerRepository: PlayerRepository
 
     @Autowired
     lateinit var scenarioRepository: ScenarioRepository
@@ -31,7 +30,7 @@ class UserTests {
 
     @Test
     fun 모든_데이터를_지운다(){
-        userRepository.deleteAll()
-        Assertions.assertEquals(0, userRepository.count())
+        playerRepository.deleteAll()
+        Assertions.assertEquals(0, playerRepository.count())
     }
 }
