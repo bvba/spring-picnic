@@ -11,7 +11,7 @@ class GameStatusConverter: AttributeConverter<GameStatus, String> {
     }
 
     override fun convertToEntityAttribute(status: String): GameStatus {
-    return GameStatus.valueOf(status.uppercase())
+        return GameStatus.valueOf(status.uppercase())
     }
 
 }

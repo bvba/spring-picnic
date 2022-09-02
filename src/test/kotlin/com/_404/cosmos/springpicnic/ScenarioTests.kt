@@ -8,8 +8,8 @@ import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest
 
-@Suppress("No" +
-        "nAsciiCharacters", "TestFunctionName")
+
+@Suppress("NonAsciiCharacters", "TestFunctionName")
 @DataJpaTest
 class ScenarioTests {
 
@@ -19,10 +19,6 @@ class ScenarioTests {
     val scenario1: Scenario = Scenario(id=1, gameSpan = 10, loadSize = 20)
     val scenario2: Scenario = Scenario(id=2, gameSpan = 15, loadSize = 30)
 
-    @BeforeEach
-    fun setUp(){
-        scenarioRepository.deleteAll()
-    }
 
     @Test
     fun 시나리오를_추가_한다(){
@@ -35,7 +31,7 @@ class ScenarioTests {
     @Test
     fun 존재하지_않는_시나리오를_조회_한다(){
         val scenario = scenarioRepository.findById(-1)
-        Assertions.assertFalse(scenario.isPresent)
+        Assertions.assertTrue(scenario.isEmpty)
     }
 
     @Test
@@ -45,28 +41,23 @@ class ScenarioTests {
 
         Assertions.assertEquals(2, scenarioRepository.count())
 
-        var scenario = scenarioRepository.findById(scenario1.id!!)
+        var scenario = scenarioRepository.findById(scenario1.id)
         Assertions.assertTrue(scenario.isPresent)
 
-        isSameScenario(scenario1, scenario.get())
+        Assertions.assertTrue(scenario1 == scenario.get())
 
-        scenario = scenarioRepository.findById(scenario2.id!!)
+        scenario = scenarioRepository.findById(scenario2.id)
         Assertions.assertTrue(scenario.isPresent)
-
-        isSameScenario(scenario2, scenario.get())
+        Assertions.assertTrue(scenario2 == scenario.get())
 
     }
 
     @Test
     fun 모든_데이터를_지운다(){
+        scenarioRepository.save(scenario1)
+        scenarioRepository.save(scenario2)
         scenarioRepository.deleteAll()
         Assertions.assertEquals(0, scenarioRepository.count())
-    }
-
-    fun isSameScenario( scenario_a: Scenario,  scenario_b: Scenario){
-        Assertions.assertEquals(scenario_a.id, scenario_b.id)
-        Assertions.assertEquals(scenario_a.gameSpan, scenario_b.gameSpan)
-        Assertions.assertEquals(scenario_a.loadSize, scenario_b.loadSize)
     }
 
 }
