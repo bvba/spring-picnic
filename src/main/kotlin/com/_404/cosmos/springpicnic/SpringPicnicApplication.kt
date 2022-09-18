@@ -15,12 +15,13 @@ import java.time.format.DateTimeFormatter
 @EnableJpaAuditing
 @EnableSwagger2
 class SpringPicnicApplication {
-	@GetMapping("/home")
-	fun home(): String {
-		return ZonedDateTime.now(ZoneId.of("Asia/Seoul")).format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))
-	}
+
+    @GetMapping("/home")
+    fun home(): String {
+        return ZonedDateTime.now(ZoneId.of("Asia/Seoul")).format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))
+    }
 }
 
 fun main(args: Array<String>) {
-	runApplication<SpringPicnicApplication>(*args)
+    runApplication<SpringPicnicApplication>(*args)
 }

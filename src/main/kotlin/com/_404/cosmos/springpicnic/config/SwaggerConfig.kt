@@ -14,13 +14,13 @@ import springfox.documentation.spring.web.plugins.Docket
 @EnableWebFlux
 class SwaggerConfig {
 
-	@Bean
-	@Profile(ProfileHolder.PROFILE_DEFAULT, ProfileHolder.PROFILE_DEV)
-	fun swaggerApi(): Docket {
-		return Docket(DocumentationType.SWAGGER_2)
-			.select()
-			.apis(RequestHandlerSelectors.any())
-			.paths(PathSelectors.ant("/error").negate())
-			.build()
-	}
+    @Bean
+    @Profile(ProfileHolder.PROFILE_DEFAULT, ProfileHolder.PROFILE_DEV)
+    fun swaggerApi(): Docket {
+        return Docket(DocumentationType.SWAGGER_2)
+            .select()
+            .apis(RequestHandlerSelectors.any())
+            .paths(PathSelectors.ant("/error").negate())
+            .build()
+    }
 }
