@@ -6,12 +6,12 @@ import javax.persistence.Converter
 
 @Converter
 class GameStatusConverter: AttributeConverter<GameStatus, String> {
-    override fun convertToDatabaseColumn(attribute: GameStatus?): String {
-        TODO("Not yet implemented")
+    override fun convertToDatabaseColumn(gameStatus: GameStatus): String {
+        return gameStatus.status
     }
 
-    override fun convertToEntityAttribute(dbData: String?): GameStatus {
-        TODO("Not yet implemented")
+    override fun convertToEntityAttribute(status: String): GameStatus {
+        return GameStatus.valueOf(status.uppercase())
     }
 
 }

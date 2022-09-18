@@ -14,8 +14,8 @@ open class Player(
         @GeneratedValue(strategy = GenerationType.AUTO)
         open var id: Long? = null,
 
-        @Column(name="auth_token")
-        open var autoToken: String,
+        @Column(name="auth_token", unique = true)
+        open var authToken: String,
 
         @Column(name="created_at")
         open var createdAt:LocalDateTime = LocalDateTime.now(),
@@ -23,7 +23,7 @@ open class Player(
         @Column(name="expire_at")
         open var expireAt:LocalDateTime? = null,
 
-        @ManyToOne(fetch = FetchType.LAZY)
+        @ManyToOne(fetch = FetchType.EAGER)
         @JoinColumn(name = "scenario_id")
         open var scenario: Scenario? = null,
 

@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest
 
+
 @Suppress("NonAsciiCharacters", "TestFunctionName")
 @DataJpaTest
 class ScenarioTests {
@@ -24,6 +25,7 @@ class ScenarioTests {
         scenarioRepository.save(scenario1)
 
         Assertions.assertEquals(1, scenarioRepository.count())
+        Assertions.assertEquals(1, scenarioRepository.findAll()[0].id)
     }
 
     @Test
