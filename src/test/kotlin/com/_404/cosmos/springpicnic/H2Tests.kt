@@ -11,42 +11,39 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest
 @DataJpaTest
 class H2Tests {
 
-	@Autowired
-	lateinit var testRepository: TestRepository
-		protected set
+    @Autowired
+    lateinit var testRepository: TestRepository
+        protected set
 
-	@Test
-	fun 데이터_추가와_조회에_성공한다() {
-		// given
-		val testEntity = TestEntity()
+    @Test
+    fun 데이터_추가와_조회에_성공한다() {
+        // given
+        val testEntity = TestEntity()
 
-		Assertions.assertThatCode {
-			// when
-			testRepository.save(testEntity)
-		}
-			// then
-			.doesNotThrowAnyException()
+        Assertions.assertThatCode {
+            // when
+            testRepository.save(testEntity)
+        }
+            // then
+            .doesNotThrowAnyException()
 
+        // when
+        val findAll = testRepository.findAll()
 
-		// when
-		val findAll = testRepository.findAll()
+        // then
+        Assertions.assertThat(findAll).size().isPositive
+    }
 
-		// then
-		Assertions.assertThat(findAll).size().isPositive
-	}
+    @Test
+    fun 다른_테스트의_영향을_받지_않는다() {
+        // given
+        val testEntity = TestEntity()
+        testRepository.save(testEntity)
 
-	@Test
-	fun 다른_테스트의_영향을_받지_않는다() {
-		// given
-		val testEntity = TestEntity()
-		testRepository.save(testEntity)
+        // when
+        val findAll = testRepository.findAll()
 
-		// when
-		val findAll = testRepository.findAll()
-
-		// then
-		Assertions.assertThat(findAll).size().isEqualTo(1)
-
-	}
-
+        // then
+        Assertions.assertThat(findAll).size().isEqualTo(1)
+    }
 }

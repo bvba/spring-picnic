@@ -12,13 +12,12 @@ import javax.persistence.Id
 @Getter
 class TestEntity {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	var id: Long = 0
-		private set
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    var id: Long = 0
+        private set
 
-	@Column
-	var dateTime: ZonedDateTime = ZonedDateTime.now()
-		private set
-
+    @Column
+    var dateTime: ZonedDateTime = ZonedDateTime.now()
+        private set
 }
